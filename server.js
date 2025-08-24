@@ -2,6 +2,25 @@ const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const sqlite3 = require("sqlite3").verbose();
+const express = require("express");
+const app = express();
+
+const port = process.env.PORT || 3000;
+
+// Root route (homepage)
+app.get("/", (req, res) => {
+  res.send("🌱 Plant Distribution Backend is running successfully!");
+});
+
+// Health check API
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "Backend alive 🌱" });
+});
+
+app.listen(port, () => {
+  console.log(`✅ Server running on port ${port}`);
+});
+
 
 const app = express();
 app.use(cors());
